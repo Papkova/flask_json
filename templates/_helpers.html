@@ -1,0 +1,17 @@
+{% macro form_generate(form) %}
+<form method="post" action="">
+  {{ form.hidden_tag() }} # приховані поля
+  {% for field in form.widget.input_type != 'hidden' %}
+    <div class="field">
+      {{ field.label }} {{ field }}
+    </div>
+  {% if field.errors %}
+    {% for error in field.errors %}
+      <div class="field_error">
+        {{ error }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% endfor %}
+</form>
+{% endmacro %}

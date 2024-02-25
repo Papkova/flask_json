@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% form '_helpers.html' import form_generate %}
+
+{% block content %}
+    {{ form_generate(form) }}
+{% endblock %}
